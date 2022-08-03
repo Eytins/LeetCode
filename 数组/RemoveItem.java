@@ -2,9 +2,9 @@ public class RemoveItem {
     /**
      * 27
      *
-     * @param nums
-     * @param val
-     * @return
+     * @param nums 参数
+     * @param val 参数
+     * @return 返回值
      */
     public int removeElement(int[] nums, int val) {
         int slow, fast = 0;
@@ -20,8 +20,8 @@ public class RemoveItem {
     /**
      * 26
      *
-     * @param nums
-     * @return
+     * @param nums 参数
+     * @return 返回值
      */
     public int removeDuplicates(int[] nums) {
         int slow = 0, fast;
@@ -37,7 +37,7 @@ public class RemoveItem {
     /**
      * 283
      *
-     * @param nums
+     * @param nums 参数
      */
     public void moveZeroes(int[] nums) {
         int j = 0;
@@ -55,7 +55,7 @@ public class RemoveItem {
     /**
      * 283
      *
-     * @param nums
+     * @param nums 参数
      */
     public void moveZeroes2(int[] nums) {
         int slow = 0, fast;
@@ -76,15 +76,15 @@ public class RemoveItem {
     /**
      * 844
      *
-     * @param s
-     * @param t
-     * @return
+     * @param s 参数
+     * @param t 参数
+     * @return 返回值
      */
     public boolean backspaceCompare(String s, String t) {
         return buildString(s).equals(buildString(t));
     }
 
-    public String buildString(String s) {
+    private String buildString(String s) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '#') {
