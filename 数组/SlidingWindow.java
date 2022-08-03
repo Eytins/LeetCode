@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SlidingWindow {
@@ -6,7 +8,7 @@ public class SlidingWindow {
      * 209暴力解法
      *
      * @param target 参数
-     * @param nums 参数
+     * @param nums   参数
      * @return 返回值
      */
     public int minSubArrayLen(int target, int[] nums) {
@@ -31,7 +33,7 @@ public class SlidingWindow {
      * 209滑动窗口
      *
      * @param target 参数
-     * @param nums 参数
+     * @param nums   参数
      * @return 返回值
      */
     public int minSubArrayLen2(int target, int[] nums) {
@@ -117,6 +119,47 @@ public class SlidingWindow {
         }
         if (n % 2 == 1) {
             res[start][start] = count;
+        }
+        return res;
+    }
+
+    /**
+     * 54 没对，不过大差不差，最后的判断再改一下就ok
+     *
+     * @param matrix 参数
+     * @return 返回值
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int loop = 0;
+        int i = 0, j = 0;
+        int start = 0;
+        int xLength = matrix[0].length;
+        int yLength = matrix.length;
+        int n = Math.min(xLength, yLength);
+        List<Integer> res = new ArrayList<>();
+        while (loop++ < n / 2) {
+            for (j = start; j < xLength - start - 1; j++) {
+                res.add(matrix[start][j]);
+            }
+            for (i = start; i < yLength - start - 1; i++) {
+                res.add(matrix[i][j]);
+            }
+            for (; j > start; j--) {
+                res.add(matrix[i][j]);
+            }
+            for (; i > start; i--) {
+                res.add(matrix[i][j]);
+            }
+            start++;
+        }
+        if (n == xLength) {
+            for (i = start; i < yLength - start - 1; i++) {
+                res.add(matrix[i][j]);
+            }
+        } else {
+            for (j = start; j < xLength - start - 1; j++) {
+                res.add(matrix[i][j]);
+            }
         }
         return res;
     }
