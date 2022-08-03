@@ -31,4 +31,12 @@ public class ReverseList {
         return reverse(cur, next);
     }
 
+    private ListNode reverse2(ListNode pre, ListNode cur) {
+        if (cur == null) {
+            return pre;
+        }
+        ListNode next = cur.next;
+        cur.next = pre;
+        return reverse2(cur, next);
+    }
 }
