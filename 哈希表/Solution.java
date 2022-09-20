@@ -351,7 +351,53 @@ public class Solution {
         return result;
     }
 
+    public String reverseWords(String s) {
+        StringBuilder builder = removeSpaces(s);
+        reverseWholeString(builder, 0, builder.length());
+        reverseEachWord(builder);
+        return builder.toString();
+    }
+
+    private StringBuilder removeSpaces(String s) {
+        int start = 0;
+        int end = s.length() - 1;
+        StringBuilder builder = new StringBuilder();
+        while (s.charAt(start) == ' ') start++;
+        while (s.charAt(end) == ' ') end--;
+        while (start <= end) {
+            if (s.charAt(start) != ' ' || builder.charAt(builder.length() - 1) != ' ') {
+                builder.append(s.charAt(start));
+            }
+            start++;
+        }
+        return builder;
+    }
+
+    private void reverseWholeString(StringBuilder builder, int start, int end) {
+        while (start < end) {
+            char c = builder.charAt(start);
+            builder.setCharAt(start, builder.charAt(end));
+            builder.setCharAt(end, c);
+            start++;
+            end--;
+        }
+    }
+
+    private void reverseEachWord(StringBuilder builder) {
+        int start = 0;
+        int end = 1;
+        int n = builder.length();
+        while (start < n) {
+            while (end < n && builder.charAt(end) != ' ') {
+                end++;
+            }
+            reverseWholeString(builder, start, end - 1);
+            start = end + 1;
+            end = start + 1;
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(1 % 10);
+
     }
 }
