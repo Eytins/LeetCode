@@ -60,6 +60,7 @@ public class StringSolution {
 
     /**
      * 151
+     *
      * @param s s
      * @return r
      */
@@ -123,8 +124,6 @@ public class StringSolution {
         }
     }
 
-    
-
     private void reverse(char[] chars, int begin, int end) {
         while (begin < end) {
             chars[begin] ^= chars[end];
@@ -135,7 +134,19 @@ public class StringSolution {
         }
     }
 
-    public static void main(String[] args) {
+    public String reverseLeftWords(String s, int n) {
+        n = n % s.length();
+        StringBuilder builder = new StringBuilder();
+        for (int i = n; i < s.length(); i++) {
+            builder.append(s.charAt(i));
+        }
+        for (int i = 0; i < n; i++) {
+            builder.append(s.charAt(i));
+        }
+        return builder.toString();
+    }
 
+    public static void main(String[] args) {
+        System.out.println(2 % 7);
     }
 }
