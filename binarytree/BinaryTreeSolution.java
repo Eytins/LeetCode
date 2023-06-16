@@ -25,6 +25,10 @@ public class BinaryTreeSolution {
         }
 
         public void checkFun(TreeNode node, Integer deep) {
+            String s  = new String();
+            s.getBytes();
+            byte[] nums;
+            Deque<TreeNode> queue = new LinkedList<>();
             if (node == null) {
                 return;
             }
