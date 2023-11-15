@@ -4,7 +4,7 @@ import java.util.Map;
 public class Test3 {
 
 
-    long solution(String[] queryType, int[][] query) {
+    public long solution(String[] queryType, int[][] query) {
         long sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < queryType.length; i++) {
